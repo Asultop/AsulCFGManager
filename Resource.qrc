@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/pic">
+        <file>Pic/CSRM.png</file>
+        <file>Pic/favicon.ico</file>
+        <file>Pic/CS2.ico</file>
+    </qresource>
+    <qresource prefix="/uac">
+        <file>Uac/res.rc</file>
+        <file>Uac/uac.manifest</file>
+    </qresource>
+    <qresource prefix="/Tools">
+        <file>Tools/7z.dll</file>
+        <file>Tools/7z.exe</file>
+        <file>Tools/getPerfectPath.bat</file>
+    </qresource>
+    <qresource prefix="/md">
+        <file>Md/formatHelp.md</file>
+        <file>Md/formatHelp.css</file>
+    </qresource>
+</RCC>
