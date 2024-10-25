@@ -2,29 +2,34 @@
 #include "Headers/BaseInclude.h"
 #include "Headers/T_Home.h"
 #include <QStandardPaths>
+#include <ElaApplication.h>
 #include <QDesktopServices>
 FluentHiper::FluentHiper(QWidget *parent)
     : ElaWindow(parent)
 {
-    this->setUserInfoCardPixmap(QPixmap("://pic/favicon.ico"));
+    this->setUserInfoCardPixmap(QPixmap(":/pic/Pic/favicon.ico"));
     this->setUserInfoCardTitle("CFG LinkWard");
     this->setUserInfoCardSubTitle("by Alivn@Asul.top");
     this->setUserInfoCardVisible(true);
     this->setWindowTitle("CFG - CSRM");
     this->setWindowButtonFlag(ElaAppBarType::ThemeChangeButtonHint,false);
     this->setWindowButtonFlag(ElaAppBarType::StayTopButtonHint,false);
-    this->setIsEnableMica(true);
 
+
+    this->setAcceptDrops(true);
     this->setFixedSize(QSize(800,600));
     //SaveFile To
     gLocation=new QTemporaryDir();
     GlobalLocation=gLocation->path();
-    QDesktopServices::openUrl(gLocation->path());
+    // Use For Debug...
+    // QDesktopServices::openUrl(gLocation->path());
+    //
     saveResourceFile("/Tools","Tools/7z.exe",GlobalLocation+"/7z.exe");
     saveResourceFile("/Tools","Tools/7z.dll",GlobalLocation+"/7z.dll");
     saveResourceFile("/Tools","Tools/getPerfectPath.bat",GlobalLocation+"/getPerfectPath.bat");
     // normTips("located",GlobalLocation->path());
     //SaveFile End
+
     QScreen *screen = QGuiApplication::primaryScreen();
     QString filePath = GlobalLocation+"/mica.png";
     if (screen) {
@@ -40,8 +45,11 @@ FluentHiper::FluentHiper(QWidget *parent)
             qDebug() << "Failed to save screenshot";
         }
     }
-    // this->setIsEnableMica(false);
-    this->setMicaImagePath(filePath);
+    eApp->setIsEnableMica(true);
+    eApp->setMicaImagePath(filePath);
+    // // this->setIsEnableMica(false);
+    // this->setMicaImagePath(filePath);
+    // this->setIsEnableMica(true);
     ElaTheme::getInstance()->setThemeMode(ElaThemeType::Dark);
     this->update();
     this->setNavigationBarDisplayMode(ElaNavigationType::Compact);
@@ -111,6 +119,44 @@ void FluentHiper::saveResourceFile(QString resProfiex,QString resFileName,QStrin
     QFile file;
     file.copy(resFile,destFullPathFileName);
 }
+void FluentHiper::dragEnterEvent(QDragEnterEvent* ev)
+{
+    if (ev->mimeData()->hasUrls())
+    {
+        ev->acceptProposedAction();
+    }
+    else
+    {
+        ev->ignore();
+    }
+}
+
+void FluentHiper::dropEvent(QDropEvent* ev)
+{
+    if (ev->mimeData()->hasUrls())
+    {
+        // QList<QUrl> url_list = ev->mimeData()->urls();
+        // for (int i = 0; i < url_list.size(); i++)
+        // {
+        //     QString name = url_list.at(i).toLocalFile();
+        //     QFileInfo info(name);
+        //     if (info.suffix() != "ncm" || info.isDir())
+        //     {
+        //         continue;
+        //     }
+        //     this->addFile(name);
+        // }
+        // emit dropEnd();
+        QList<QUrl> urls = ev->mimeData()->urls();
+        if (!urls.isEmpty()) {
+            QString filename = urls.first().toLocalFile();
+            emit fileDropped(filename);
+            qDebug()<<filename;
+            update();
+        }
+    }
+}
+
 FluentHiper::~FluentHiper() {
     delete gLocation;
 }

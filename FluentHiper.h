@@ -6,6 +6,9 @@
 #include "Headers/T_Deploy.h"
 #include "Headers/T_FormatHelp.h"
 #include <QTemporaryDir>
+#include <QDragEnterEvent>
+#include <QDropEvent>
+#include <QMimeData>
 class FluentHiper : public ElaWindow
 {
     Q_OBJECT
@@ -28,5 +31,10 @@ public:
     T_FormatHelp *formatPage;
     FluentHiper(QWidget *parent = nullptr);
     ~FluentHiper();
+protected:
+    void dragEnterEvent(QDragEnterEvent* ev) override;
+    void dropEvent(QDropEvent* ev) override;
+signals:
+    void fileDropped(QString fileName);
 };
 #endif // FLUENTHIPER_H

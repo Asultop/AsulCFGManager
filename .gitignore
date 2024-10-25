@@ -1,2 +1,4 @@
 build/
 FluentCSRM.pro.user
+CMakeLists.txt.user
+qmake2cmake.exe

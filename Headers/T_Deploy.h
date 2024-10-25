@@ -10,7 +10,7 @@
 #include <ElaWindow.h>
 #include <QSettings>
 #include <ElaComboBox.h>
-
+#include "Headers/W_DragFrame.h"
 class T_Deploy : public BaseScrollPage
 {
     Q_OBJECT

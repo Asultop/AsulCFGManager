@@ -17,6 +17,7 @@ T_Deploy::T_Deploy(QWidget *parent,QTemporaryDir *tempDir)
 {
     initWidget("部署 CFG","安装 CFG","选择符合格式的安装包\n我们会为您解析数据并自动安装到您的CFG目录下");
     gLocation=tempDir;
+    this->setAcceptDrops(true);
     getAllPath();
     qDebug()<<"\n=====getAllPath()======\nSteamPath:"
              <<steamPath
@@ -42,6 +43,17 @@ T_Deploy::T_Deploy(QWidget *parent,QTemporaryDir *tempDir)
     selectedFilePath->hide();
     selectFileButton->setMinimumHeight(MiddleHeight);
     selectFileLayout->addWidget(selectFileButton);
+    W_DragFrame *selectDragFrame = new W_DragFrame(this);
+
+    connect(selectDragFrame, &W_DragFrame::fileDropped, this, [=](const QString &val){
+        parentWindow->normTips("File",val);
+        qDebug()<<val;
+    });
+    // selectFileLayout->addWidget(selectDragFrame);
+    // selectDragFrame->setMinimumHeight(60);
+    // addTopWidget(selectDragFrame);
+    // DragFrame未完善
+    selectDragFrame->hide();
     connect(selectFileButton,&ElaPushButton::clicked,[=](){
         QString fileName = QFileDialog::getOpenFileName(
             this,
@@ -476,7 +488,7 @@ void T_Deploy::generateScrollPageLayout(QString CFGFileLocation, ElaFlowLayout *
                 CFGSettingPage->hide();
                 parentWindow->succTips("CFG","一项配置完成部署");
                 qDebug()<<"\n\n\n\n=========SumStart=======\n"<<sumContent<<"\n========SumEnd===========";
-
+                QDesktopServices::openUrl(gLocation->path()+"/"+settings_file);
                 DeployWindow->close();
                 DeployWindow->deleteLater();
             });
