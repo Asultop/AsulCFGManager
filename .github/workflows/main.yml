@@ -3,7 +3,7 @@ name: Build and Release Qt 6.7 Project
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
