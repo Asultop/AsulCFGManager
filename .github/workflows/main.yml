@@ -1,0 +1,59 @@
+name: Build and Release Qt 6.7 Project
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Qt 6.7
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.7.0'
+        tools: 'qmake'
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libegl1-mesa libgbm1 libxkbcommon-x11-0
+
+    - name: Configure project
+      run: qmake AsulCFGManager.pro
+
+    - name: Build project
+      run: make -j$(nproc)
+
+    - name: Deploy release
+      uses: actions/upload-artifact@v3
+      with:
+        name: AsulCFGManager-Release
+        path: release/
+
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: release/AsulCFGManager
+        asset_name: AsulCFGManager-${{ github.ref }}.zip
+        asset_content_type: application/zip
