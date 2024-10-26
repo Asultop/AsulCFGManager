@@ -30,13 +30,13 @@ cd ElaWidgetTool
 1. 编译 ElaWidgetTool
 2. 使用 Qt Creator 打开 `CMakeList.txt`
 3. 或通过 CMake 构建
-4. 将编译获得的 elawidgettool.dll 放入父目录 `../dll`
-5. 返回到父目录：
+4. 将编译获得的 `elawidgettools.dll` 放入父目录 `../dll`
+6. 返回到父目录：
    ```bash
    cd ..
    ```
-6. 使用 Qt Creator 打开 `FluentCSRM.pro` 文件，配置编译选项。
-7. 或者通过命令行构建：
+7. 使用 Qt Creator 打开 `FluentCSRM.pro` 文件，配置编译选项。
+8. 或者通过命令行构建：
    ```bash
    qmake FluentCSRM.pro
    make
