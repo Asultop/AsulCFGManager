@@ -20,16 +20,16 @@ T_Home::T_Home(QWidget *parent)
     homeCard2->setSubTitle("5.0⭐ CSRM");
     homeCard2->setInteractiveTips("免费获取");
     homeCard2->setDetailedText("CSRM 一站式解决CFG加载问题");
-    homeCard2->setCardFloatPixmap(QPixmap("://pic/Pic/favicon.ico"));
+    homeCard2->setCardFloatPixmap(QPixmap("://pic/Pic/favicon.png"));
     flowLayout->addWidget(homeCard2);
     homeCard = new ElaPopularCard(this);
 
-    homeCard->setCardPixmap(QPixmap(":/pic/Pic/CS2.ico"));
+    homeCard->setCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
     homeCard->setTitle("接入我们");
     homeCard->setSubTitle("使用我们的格式");
     homeCard->setInteractiveTips("JSON");
     homeCard->setDetailedText("达到CFG快速分发与部署");
-    homeCard->setCardFloatPixmap(QPixmap("://pic/Pic/favicon.ico"));
+    homeCard->setCardFloatPixmap(QPixmap("://pic/Pic/favicon.png"));
     flowLayout->addWidget(homeCard);
     // homeCard->setCardFloatPixmap(QPixmap(":/Resource/Image/IARC/IARC_7+.svg.png"));
 

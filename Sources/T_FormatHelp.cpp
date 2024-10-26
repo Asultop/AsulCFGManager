@@ -18,34 +18,10 @@ T_FormatHelp::T_FormatHelp(QWidget *parent)
     cssFile->close();
 
     textBrowser->setMarkdown(mdContent);
+    // textBrowser->setHtml(mdContent);
     textBrowser->setMinimumHeight(1200);
     textBrowser->setOpenExternalLinks(true);
     textBrowser->setStyleSheet(cssContent);
-
-    // textBrowser->setStyleSheet(R"(
-    //     QTextBrowser {
-    //         background-color: #f6f8fa;
-    //         color: #333;
-    //         font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-    //     }
-    //     QTextBrowser h1 {
-    //         font-size: 24pt;
-    //         color: #333;
-    //     }
-    //     QTextBrowser h2 {
-    //         font-size: 18pt;
-    //         color: #333;
-    //     }
-    //     QTextBrowser pre {
-    //         background-color: #f0f0f0;
-    //         border: 1px solid #dcdcdc;
-    //         padding: 10px;
-    //     }
-    //     QTextBrowser code {
-    //         background-color: #f0f0f0;
-    //         color: #d14;
-    //     }
-    // )");
     centerVLayout->addWidget(textBrowser);
 }
 T_FormatHelp::~T_FormatHelp(){

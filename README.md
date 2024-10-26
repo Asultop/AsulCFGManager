@@ -1,9 +1,30 @@
 
 
 
+<h1 align="center"><img src="./Pic/favicon.ico" width="64" align="center"> AsulCFGManager (AM)</h1>
+
+<p align="center">
+    <a href="https://asul.top/CSRM">
+        <img alt="Static Badge" src="https://img.shields.io/badge/website-Alivn-blue?style=for-the-badge">
+    </a>
+    <a href="https://github.com/AsulTop/AsulCFGManager/pulse">
+        <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/AsulTop/AsulCFGManager?style=for-the-badge">
+    </a>
+</p>
+<p align="center">
+    <a href="https://github.com/AsulTop/AsulCFGManager">
+        <img alt="Static Badge" src="https://img.shields.io/badge/AsulCFGManager-Master?style=for-the-badge&logo=github&labelColor=green&color=green">
+    </a>
+    <!-- <a href="https://github.com/eLecCap1taL/AutoSettings">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Manager-Manager?style=for-the-badge&logo=github&labelColor=yellow&color=yellow">
+    </a> -->
+    <a href="https://github.com/AsulTop/Asultop.github.io">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Page-Page?style=for-the-badge&logo=github&labelColor=purple&color=purple">
+    </a>
+</p>
 
 # AsulCFGManager - CS2 配置管理工具
-
+--- 
 ## 项目简介
 **AsulCFGManager** 是一个高效、用户友好的配置管理工具，专为《反恐精英 2》（CS2）设计。该工具支持导入、解析和管理游戏配置文件（CFG），旨在提升玩家的游戏体验和设置管理效率。
 

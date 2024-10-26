@@ -267,12 +267,12 @@ void T_Deploy::generateScrollPageLayout(QString CFGFileLocation, ElaFlowLayout *
 
 
     ElaPopularCard *CFGBreifInfo = new ElaPopularCard(this);
-    CFGBreifInfo->setCardPixmap(QPixmap(":/pic/Pic/CS2.ico"));
+    CFGBreifInfo->setCardPixmap(QPixmap(":/pic/Pic/CS2.png"));
     CFGBreifInfo->setTitle(Name + "  " + version);
     CFGBreifInfo->setSubTitle("@" + webSite);
     CFGBreifInfo->setInteractiveTips("队列中");
     CFGBreifInfo->setDetailedText(Name + " " + version + "\n" + webSite + " " + connectJsonFile + " " + resourceFile + " " + MainCFGFile + " " + ZipFilePath);
-    CFGBreifInfo->setCardFloatPixmap(QPixmap(":/pic/Pic/favicon.ico"));
+    CFGBreifInfo->setCardFloatPixmap(QPixmap(":/pic/Pic/favicon.png"));
     this->selectedFilePath->setText(ZipFilePath);
     cVLayout->addWidget(CFGBreifInfo);
 
@@ -291,7 +291,7 @@ void T_Deploy::generateScrollPageLayout(QString CFGFileLocation, ElaFlowLayout *
         // QVBoxLayout *CFGLayout=new QVBoxLayout(CFGSettingPage);
         // CFGSettingPage->setLayout(CFGLayout);
         ElaWindow *DeployWindow=new ElaWindow(this);
-        DeployWindow->setUserInfoCardPixmap(QPixmap("://pic/Pic/favicon.ico"));
+        DeployWindow->setUserInfoCardPixmap(QPixmap("://pic/Pic/favicon.png"));
         DeployWindow->setUserInfoCardTitle("CFG LinkWard");
         DeployWindow->setUserInfoCardSubTitle("by Alivn@Asul.top");
         DeployWindow->setUserInfoCardVisible(true);

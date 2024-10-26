@@ -7,7 +7,7 @@
 FluentHiper::FluentHiper(QWidget *parent)
     : ElaWindow(parent)
 {
-    this->setUserInfoCardPixmap(QPixmap(":/pic/Pic/favicon.ico"));
+    this->setUserInfoCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
     this->setUserInfoCardTitle("CFG LinkWard");
     this->setUserInfoCardSubTitle("by Alivn@Asul.top");
     this->setUserInfoCardVisible(true);
