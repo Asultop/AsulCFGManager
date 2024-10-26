@@ -14,7 +14,7 @@
 
 ## 环境要求
 - **操作系统**：Windows, macOS, 或 Linux
-- **Qt 5.x 或以上**：用于项目构建与界面展示。
+- **Qt 6.3.x 或以上**：用于项目构建与界面展示。
 - **C++ 编译器**：推荐使用 GCC 或 MSVC，确保支持 C++11 或以上标准。
 
 ## 安装与构建指南
@@ -23,11 +23,20 @@
 ```bash
 git clone https://github.com/Asultop/AsulCFGManager.git
 cd AsulCFGManager
+cd ElaWidgetTool
 ```
 
 ### 构建项目
-1. 使用 Qt Creator 打开 `FluentCSRM.pro` 文件，配置编译选项。
-2. 或者通过命令行构建：
+1. 编译 ElaWidgetTool
+2. 使用 Qt Creator 打开 `CMakeList.txt`
+3. 或通过 CMake 构建
+4. 将编译获得的 elawidgettool.dll 放入父目录 `../dll`
+5. 返回到父目录：
+   ```bash
+   cd ..
+   ```
+6. 使用 Qt Creator 打开 `FluentCSRM.pro` 文件，配置编译选项。
+7. 或者通过命令行构建：
    ```bash
    qmake FluentCSRM.pro
    make
