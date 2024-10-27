@@ -1,7 +1,7 @@
 
 
 
-<h1 align="center"><img src="./Pic/favicon.ico" width="64" align="center"> AsulCFGManager (AM)</h1>
+<h1 align="center"><img src="./Pic/favicon.png" width="64" align="center"> AsulCFGManager (AM)</h1>
 
 <p align="center">
     <a href="https://asul.top/CSRM">
