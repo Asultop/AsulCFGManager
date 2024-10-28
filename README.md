@@ -4,7 +4,7 @@
 <h1 align="center"><img src="./Pic/favicon.png" width="64" align="center"> AsulCFGManager (AM)</h1>
 
 <p align="center">
-    <a href="https://asul.top/CSRM">
+    <a href="https://asul.top/">
         <img alt="Static Badge" src="https://img.shields.io/badge/website-Alivn-blue?style=for-the-badge">
     </a>
     <a href="https://github.com/AsulTop/AsulCFGManager/pulse">
@@ -15,9 +15,7 @@
     <a href="https://github.com/AsulTop/AsulCFGManager">
         <img alt="Static Badge" src="https://img.shields.io/badge/AsulCFGManager-Master?style=for-the-badge&logo=github&labelColor=green&color=green">
     </a>
-    <!-- <a href="https://github.com/eLecCap1taL/AutoSettings">
-        <img alt="Static Badge" src="https://img.shields.io/badge/Manager-Manager?style=for-the-badge&logo=github&labelColor=yellow&color=yellow">
-    </a> -->
+    
     <a href="https://github.com/AsulTop/Asultop.github.io">
         <img alt="Static Badge" src="https://img.shields.io/badge/Page-Page?style=for-the-badge&logo=github&labelColor=purple&color=purple">
     </a>
