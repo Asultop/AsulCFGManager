@@ -3,7 +3,7 @@
 
 
 #include "ElaWidget.h"
-
+#include "ElaToggleButton.h"
 #include "ElaText.h"
 #include "ElaToolButton.h"
 #include "ElaMenu.h"
@@ -19,7 +19,7 @@
 #include "ElaMessageButton.h"
 #include "BaseScrollpage.h"
 #include <QSslSocket>
-
+#include "ElaKeyBinder.h"
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QNetworkRequest>
@@ -27,13 +27,16 @@
 #include <QEventLoop>
 #include "ElaWidget.h"
 #include <QProcess>
+#include <ElaMessageButton.h>
 #include "ElaNavigationRouter.h"
 #include <QRegularExpression>
 #include <QTimer>
 #include "ElaProgressBar.h"
 #include "ElaScrollArea.h"
 #include "ElaScrollPageArea.h"
+#include <QFileDialog>
 
 #include <QFileInfo>
-
+#include "ElaTheme.h"
+#include <QHash>
 #endif // BASEINCLUDE_H

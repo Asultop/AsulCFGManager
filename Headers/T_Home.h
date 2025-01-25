@@ -4,6 +4,8 @@
 #include <QObject>
 #include "BaseInclude.h"
 #include <ElaPopularCard.h>
+#include <ElaToolTip.h>
+#include <ElaAcrylicUrlCard.h>
 class T_Home :public BaseScrollPage
 {
     Q_OBJECT

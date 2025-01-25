@@ -5,6 +5,7 @@
         <file>Pic/CS2.ico</file>
         <file>Pic/CS2.png</file>
         <file>Pic/favicon.png</file>
+        <file>Pic/github.png</file>
     </qresource>
     <qresource prefix="/uac">
         <file>Uac/res.rc</file>
