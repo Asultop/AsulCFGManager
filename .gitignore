@@ -1,0 +1,7 @@
+build/
+install2/
+.qtc_clangd/
+ElaWidgetTools/
+FluentCSRM.pro.user
+CMakeLists.txt.user
+qmake2cmake.exe

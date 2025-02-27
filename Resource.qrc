@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/pic">
+        <file>Pic/CSRM.png</file>
+        <file>Pic/favicon.ico</file>
+        <file>Pic/CS2.ico</file>
+        <file>Pic/CS2.png</file>
+        <file>Pic/favicon.png</file>
+        <file>Pic/github.png</file>
+        <file>Pic/dream.png</file>
+        <file>Pic/alipay-removebg-preview.png</file>
+        <file>Pic/wxpay-removebg-preview.png</file>
+    </qresource>
+    <qresource prefix="/uac">
+        <file>Uac/res.rc</file>
+        <file>Uac/uac.manifest</file>
+    </qresource>
+    <qresource prefix="/Tools">
+        <file>Tools/7z.dll</file>
+        <file>Tools/7z.exe</file>
+        <file>Tools/getPerfectPath.bat</file>
+    </qresource>
+    <qresource prefix="/md">
+        <file>Md/formatHelp.md</file>
+        <file>Md/formatHelp.css</file>
+        <file>Md/formatHelp.html</file>
+    </qresource>
+</RCC>
