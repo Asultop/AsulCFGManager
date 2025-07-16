@@ -7,18 +7,24 @@
 #include "Headers/T_FormatHelp.h"
 #include "Headers/T_Setting.h"
 #include "Headers/T_About.h"
+#include "Headers/AsulWindow.h"
+#include "Headers/W_SCFGTransformer.h"
 #include <QTemporaryDir>
 #include <QDragEnterEvent>
 #include <QDropEvent>
 #include <QMimeData>
-class Asul : public ElaWindow
+class Asul : public AsulWindow
 {
     Q_OBJECT
 
 public:
     QString GlobalLocation;
     QTemporaryDir *gLocation;
-    QString _settingKey={""},_aboutKey={""};
+    QString _settingKey={""},_aboutKey={""},_formatKey={""};
+    QString getPath(QString vdfFile);
+    QString getProcessPath(const QString &processName);
+    void getAllPath();
+
     void warnTips(ElaWindow *parent,QString title,QString context);
     void succTips(ElaWindow *parent,QString title,QString context);
     void normTips(ElaWindow *parent,QString title,QString context);
@@ -34,14 +40,21 @@ public:
     void targetToSetting();
     T_FormatHelp *formatPage;
     T_Setting *settingPage;
+    W_SCFGTransformer* SCFGPage;
     Asul(QWidget *parent = nullptr);
     ~Asul();
+
+    void showEvent(QShowEvent *event) override;
 private:
     T_About *aboutpage;
+    bool readPolicy,hwInfo,logMode;
+    bool m_initialized = false;
+    // bool ask(QString title,QString content);
 protected:
     void dragEnterEvent(QDragEnterEvent* ev) override;
     void dropEvent(QDropEvent* ev) override;
 signals:
     void fileDropped(QString fileName);
+    void initFinished();
 };
 #endif // Asul_H

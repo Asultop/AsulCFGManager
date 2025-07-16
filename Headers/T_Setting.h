@@ -3,14 +3,15 @@
 
 #include <QObject>
 #include <QWidget>
-#include "BaseInclude.h"
+#include "Headers/BaseInclude.h"
 #include "BaseScrollpage.h"
 #include <QTextBrowser>
+#include <ElaMessageBar.h>
 class T_Setting : public BaseScrollPage
 {
     Q_OBJECT
 public:
-    Q_INVOKABLE explicit T_Setting(QWidget *parent = nullptr);
+    Q_INVOKABLE explicit T_Setting(QWidget *parent = nullptr,bool readHWInfo = false);
     ~T_Setting();
     QString perfectPath;
     QString steamPath;
@@ -19,8 +20,10 @@ public:
     bool autoExe=true;
     bool autoHelp=true;
     bool previewShow=false;
+    QString CPUVendor,CPUName,GPUVendor,GPUName;
 private:
     ElaText *steamPathText;
+    ElaText *sysInfo;
     ElaPushButton *steamPathChangeButton;
     ElaText *perfectPathText;
     ElaPushButton *perfectPathChangeButton;

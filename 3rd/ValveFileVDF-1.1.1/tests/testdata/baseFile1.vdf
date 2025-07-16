@@ -1,0 +1,7 @@
+"BaseInclude"
+{
+    // skip comment
+    "BaseAttrib" "Yes"
+    "#base" "baseFile1.vdf"
+    "#include" "includeFile1.vdf"
+}

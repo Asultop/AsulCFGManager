@@ -10,9 +10,11 @@ class ELA_EXPORT ElaContentDialog : public QDialog
 {
     Q_OBJECT
     Q_Q_CREATE(ElaContentDialog)
+
 public:
-    explicit ElaContentDialog(QWidget* parent);
-    ~ElaContentDialog();
+
+    explicit ElaContentDialog(QWidget* parent,bool middleButtonEnable=true);
+    ~ElaContentDialog() override;
     Q_SLOT virtual void onLeftButtonClicked();
     Q_SLOT virtual void onMiddleButtonClicked();
     Q_SLOT virtual void onRightButtonClicked();
@@ -41,4 +43,4 @@ protected:
 #endif
 };
 
-#endif// ELACONTENTDIALOG_H
+#endif // ELACONTENTDIALOG_H

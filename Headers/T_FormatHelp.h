@@ -10,6 +10,7 @@ class T_FormatHelp : public BaseScrollPage
 {
     Q_OBJECT
 public:
+    void extracted();
     Q_INVOKABLE explicit T_FormatHelp(QWidget *parent = nullptr);
     ~T_FormatHelp();
 

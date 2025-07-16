@@ -1,0 +1,53 @@
+"#base"  "baseFile1.vdf"
+
+//simple check
+"AppState"
+{
+	"appid"		"343050"
+	"Universe"		"1"
+	"name"		"Don't Starve Together Dedicated Server"
+	"StateFlags"		"4"
+	"installdir"		"Don't Starve Together Dedicated Server"
+	"LastUpdated"		"1462118047"
+	"UpdateResult"		"0"
+    "UpdateResult"		"1"
+    no_quoted_attrib_support yes
+	"SizeOnDisk"		"663289971"
+	"buildid"		"1101428"
+	"LastOwner"		"76561198937928833"
+	"BytesToDownload"		"39029520"
+	"BytesDownloaded"		"39029520"
+	"AutoUpdateBehavior"		"0"
+	"AllowOtherDownloadsWhileRunning"		"0"
+    "#include"  "includeFile1.vdf"
+    "#base"  "baseFile1.vdf"
+    "#1_attrib" "1"
+    "emptyAttrib" ""
+    "commentInValue" "no//comment"
+    "escape_quote" "\"quote\""
+    "escape_quote_backslash" "quote_with_other_escapes\\\"\\"
+    "tab_escape" "new\ttab"
+    "new_line_escape" "new\nline"
+    "quad_escape" "\\\\"
+
+	"conditional" "macos" [$OSX]
+	"conditional" "not osx" [!$OSX]
+    
+    // inline comment
+    "UserConfig"
+	{
+	}
+    
+    // comment with a "quote"
+	"MountedDepots"
+	{
+		"343051"		"8201905585059905072"
+	}
+    "another attribute with fancy space" "yay"
+    
+    /*  super
+        block
+        comment
+    */
+    
+}

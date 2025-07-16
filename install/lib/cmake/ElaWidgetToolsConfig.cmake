@@ -24,8 +24,12 @@ endmacro()
 
 ####################################################################################
 
-set( ELAWIDGETTOOLS_LIBRARIES  ElaWidgetTools)
-set( ELAWIDGETTOOLS_INCLUDE_DIRS  ${PACKAGE_PREFIX_DIR}/include)
-set( ELAWIDGETTOOLS_LIBRARY_DIRS ${PACKAGE_PREFIX_DIR}/lib)
+set( ElaWidgetTools_LIBRARIES  ElaWidgetTools)
+set( ElaWidgetTools_INCLUDE_DIRS  ${PACKAGE_PREFIX_DIR}/include)
+set( ElaWidgetTools_LIBRARY_DIRS ${PACKAGE_PREFIX_DIR}/lib)
 
 check_required_components(${PROJECT_NAME})
+
+include(CMakeFindDependencyMacro)
+
+include(${PACKAGE_PREFIX_DIR}/lib/cmake/ElaWidgetToolsTargets.cmake)

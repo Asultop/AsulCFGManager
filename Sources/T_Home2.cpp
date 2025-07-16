@@ -1,5 +1,5 @@
 ﻿#include "Headers/T_Home2.h"
-
+#include "Headers/BaseScrollpage.h"
 #include <QDebug>
 #include <QDesktopServices>
 #include <QHBoxLayout>
@@ -18,7 +18,10 @@
 #include "ElaText.h"
 #include "ElaToolTip.h"
 #include "AsulCFGManager.h"
+#include <QsLog.h>
+
 #define parentWindow dynamic_cast<Asul *>(this->parent())
+using namespace QsLogging;
 T_Home2::T_Home2(QWidget* parent)
     : T_BasePage(parent)
 {
@@ -32,7 +35,7 @@ T_Home2::T_Home2(QWidget* parent)
     desText->setTextPixelSize(18);
     ElaText* titleText = new ElaText("Asul CFG Manager ", this);
     titleText->setTextPixelSize(35);
-    ElaText * titleSubText=new ElaText("CS2 CFG管理工具",this);
+    ElaText * titleSubText=new ElaText(tr("CS2 CFG管理工具"),this);
     titleSubText->setTextPixelSize(25);
     QVBoxLayout* titleLayout = new QVBoxLayout();
     titleLayout->setContentsMargins(30, 60, 0, 0);
@@ -56,7 +59,7 @@ T_Home2::T_Home2(QWidget* parent)
     urlCard1->setUrl("https://github.com/AsulTop");
     urlCard1->setCardPixmap(QPixmap(":/pic/Pic/github.png"));
     urlCard1->setTitle("Asul Github");
-    urlCard1->setSubTitle("开发者 GitHub");
+    urlCard1->setSubTitle(tr("GitHub"));
     ElaToolTip* urlCard1ToolTip = new ElaToolTip(urlCard1);
     urlCard1ToolTip->setToolTip("https://github.com/AsulTop/AsulCFGManager");
     ElaAcrylicUrlCard* urlCard2 = new ElaAcrylicUrlCard(this);
@@ -97,7 +100,7 @@ T_Home2::T_Home2(QWidget* parent)
     backgroundLayout->addWidget(cardScrollArea);
 
     // 推荐卡片
-    ElaText* flowText = new ElaText("功能", this);
+    ElaText* flowText = new ElaText(tr("功能"), this);
     flowText->setTextPixelSize(20);
     QHBoxLayout* flowTextLayout = new QHBoxLayout();
     flowTextLayout->setContentsMargins(33, 0, 0, 0);
@@ -107,39 +110,46 @@ T_Home2::T_Home2(QWidget* parent)
     connect(homeCard, &ElaPopularCard::popularCardButtonClicked, this, [=]() {
         QDesktopServices::openUrl(QUrl("https://github.com/AsulTop/AsulCFGManager"));
     });
-    homeCard->setCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
+    QPixmap pngLo(QPixmap(QString(":/pic/Pic/favicon.png").replace("favicon.png",eTheme->getThemeMode()==ElaThemeType::Light?"favicon_dark.png":"favicon.png")));
+    homeCard->setCardPixmap(pngLo);
     homeCard->setTitle("ACM");
-    homeCard->setSubTitle("CFG管理器");
-    homeCard->setInteractiveTips("使用中");
-    homeCard->setDetailedText("一个图形化CS2 CFG管理模块");
+    homeCard->setSubTitle(tr("CFG管理器"));
+    homeCard->setInteractiveTips(tr("使用中"));
+    homeCard->setDetailedText(tr("一个图形化CS2 CFG管理模块"));
     homeCard->setCardButtontext("GitHub");
     homeCard->setCardFloatPixmap(QPixmap(":/pic/Pic/CS2.ico"));
 
     ElaPopularCard* homeCard1 = new ElaPopularCard(this);
     connect(homeCard1, &ElaPopularCard::popularCardButtonClicked, this, [=]() { Q_EMIT elaScreenNavigation(); });
-    homeCard1->setTitle("市场");
-    homeCard1->setSubTitle("下载最新的CFG包");
-    homeCard1->setCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
-    homeCard1->setInteractiveTips("下载");
-    homeCard1->setDetailedText("下载 CFG 本体 （该功能计划中）");
-    homeCard1->setCardButtontext("转到下载");
+    homeCard1->setTitle(tr("市场"));
+    homeCard1->setSubTitle(tr("下载最新的CFG包"));
+    homeCard1->setCardPixmap(pngLo);
+    homeCard1->setInteractiveTips(tr("下载"));
+    homeCard1->setDetailedText(tr("下载 CFG 本体 （该功能计划中）"));
+    homeCard1->setCardButtontext(tr("转到下载"));
     connect(homeCard1,&ElaPopularCard::popularCardButtonClicked,[=](){
-        parentWindow->warnTips("市场","开发中");
-        qDebug()<<"C1";
+        BaseScrollPage::showSuccEx(tr("市场"),tr("开发中"));
+        QLOG_DEBUG()<<"[Market] C1";
     });
     // homeCard1->setCardFloatPixmap(QPixmap(""));
 
     homeCard2 = new ElaPopularCard(this);
     connect(homeCard2, &ElaPopularCard::popularCardButtonClicked, this, [=]() { Q_EMIT elaSceneNavigation(); });
-    homeCard2->setTitle("接入我们");
-    homeCard2->setSubTitle("提供格式");
-    homeCard2->setCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
-    homeCard2->setInteractiveTips("功能");
-    homeCard2->setDetailedText("跳转到 AM 接入详情界面");
-    homeCard2->setCardButtontext("转到详情");
+    homeCard2->setTitle(tr("接入我们"));
+    homeCard2->setSubTitle(tr("提供格式"));
+    homeCard2->setCardPixmap(pngLo);
+    homeCard2->setInteractiveTips(tr("功能"));
+    homeCard2->setDetailedText(tr("跳转到 AM 接入详情界面"));
+    homeCard2->setCardButtontext(tr("转到详情"));
     // homeCard2->setCardFloatPixmap(QPixmap(":/Resource/Image/IARC/IARC_7+.svg.png"));
 
+    connect(eTheme,&ElaTheme::themeModeChanged,[=](){
+        QPixmap pngLoc(QPixmap(QString(":/pic/Pic/favicon.png").replace("favicon.png",eTheme->getThemeMode()==ElaThemeType::Light?"favicon_dark.png":"favicon.png")));
 
+        homeCard->setCardPixmap(pngLoc);
+        homeCard1->setCardPixmap(pngLoc);
+        homeCard2->setCardPixmap(pngLoc);
+    });
     ElaFlowLayout* flowLayout = new ElaFlowLayout(0, 5, 5);
     flowLayout->setContentsMargins(30, 0, 0, 0);
     flowLayout->setIsAnimation(true);
@@ -195,7 +205,7 @@ T_Home2::T_Home2(QWidget* parent)
 
     // 初始化提示
     // ElaMessageBar::success(ElaMessageBarType::BottomRight, "Success", "初始化成功!", 2000);
-    // qDebug() << "初始化成功";
+    // QLOG_DEBUG() << "初始化成功";
 }
 
 T_Home2::~T_Home2()

@@ -1,0 +1,4 @@
+"IncludedStuff"
+{
+    "#include" "baseFile1.vdf"
+}

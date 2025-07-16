@@ -51,17 +51,22 @@ T_Home::T_Home(QWidget *parent)
     urlCard2ToolTip->setToolTip("https://github.com/Liniyous/ElaWidgetTools");
     flowLayout->addWidget(urlCard2);
 
+    QPixmap pngLo(QPixmap(QString(":/pic/Pic/favicon.png").replace("favicon.png",eTheme->getThemeMode()==ElaThemeType::Light?"favicon_dark.png":"favicon.png")));
     homeCard = new ElaPopularCard(this);
-    homeCard->setCardPixmap(QPixmap(":/pic/Pic/favicon.png"));
+    homeCard->setCardPixmap(pngLo);
     homeCard->setTitle("接入我们");
     homeCard->setSubTitle("使用我们的格式");
     homeCard->setInteractiveTips("JSON");
     homeCard->setDetailedText("达到CFG快速分发与部署");
-    homeCard->setCardFloatPixmap(QPixmap("://pic/Pic/favicon.png"));
+    homeCard->setCardFloatPixmap(pngLo);
     flowLayout->addWidget(homeCard);
     // homeCard->setCardFloatPixmap(QPixmap(":/Resource/Image/IARC/IARC_7+.svg.png"));
 
-
+    connect(eTheme,&ElaTheme::themeModeChanged,[=](){
+        QPixmap pngLoc=QPixmap(QString(":/pic/Pic/favicon.png").replace("favicon.png",eTheme->getThemeMode()==ElaThemeType::Light?"favicon_dark.png":"favicon.png"));
+        homeCard->setCardPixmap(pngLoc);
+        homeCard->setCardFloatPixmap(pngLoc);
+    });
     ElaText* subWord=new ElaText("快捷 CFG 面板",this);
     QFont subFont=subWord->font();
     subFont.setPixelSize(20);

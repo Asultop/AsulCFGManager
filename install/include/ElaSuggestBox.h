@@ -19,24 +19,12 @@ public:
     ~ElaSuggestBox();
     void setPlaceholderText(const QString& placeholderText);
 
-    void addSuggestion(const QString& suggestText, const QVariantMap& suggestData = {});
-    void addSuggestion(ElaIconType::IconName icon, const QString& suggestText, const QVariantMap& suggestData = {});
-    void removeSuggestion(const QString& suggestText);
+    QString addSuggestion(const QString& suggestText, const QVariantMap& suggestData = {});
+    QString addSuggestion(ElaIconType::IconName icon, const QString& suggestText, const QVariantMap& suggestData = {});
+    void removeSuggestion(const QString& suggestKey);
     void removeSuggestion(int index);
 Q_SIGNALS:
     Q_SIGNAL void suggestionClicked(QString suggestText, QVariantMap suggestData);
-    Q_SIGNAL void hiddenStateChanged(bool isHidden);
-protected:
-    void hideEvent(QHideEvent* event) override
-    {
-        QWidget::hideEvent(event);
-        emit hiddenStateChanged(true); // 发射隐藏状态改变信号
-    }
-    void showEvent(QShowEvent* event) override
-    {
-        QWidget::showEvent(event);
-        emit hiddenStateChanged(false); // 发射显示状态改变信号
-    }
 };
 
 #endif // ELASUGGESTBOX_H

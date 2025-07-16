@@ -9,6 +9,15 @@
         <file>Pic/dream.png</file>
         <file>Pic/alipay-removebg-preview.png</file>
         <file>Pic/wxpay-removebg-preview.png</file>
+        <file>Pic/splash_dark.png</file>
+        <file>Pic/splash_light.png</file>
+        <file>Pic/splash_dark_hRes.png</file>
+        <file>Pic/splash_light_hRes.png</file>
+        <file>Pic/favicon_dark.jpg</file>
+        <file>Pic/favicon_dark.png</file>
+        <file>Pic/steamDefault.png</file>
+        <file>Pic/steamDefault.jpg</file>
+        <file>Pic/elecCap1tal_Github.png</file>
     </qresource>
     <qresource prefix="/uac">
         <file>Uac/res.rc</file>
@@ -18,10 +27,17 @@
         <file>Tools/7z.dll</file>
         <file>Tools/7z.exe</file>
         <file>Tools/getPerfectPath.bat</file>
+        <file>Tools/scfg.exe</file>
+        <file>Tools/lua54.dll</file>
     </qresource>
     <qresource prefix="/md">
-        <file>Md/formatHelp.md</file>
-        <file>Md/formatHelp.css</file>
-        <file>Md/formatHelp.html</file>
+        <file>Md/formatHelp_zh_CN.md</file>
+        <file>Md/formatHelp_zh_CN.css</file>
+        <file>Md/formatHelp_zh_CN.html</file>
+        <file>Md/formatHelp_en_US.md</file>
+    </qresource>
+    <qresource prefix="/lang">
+        <file>translations/AM_en_US.qm</file>
+        <file>translations/AM_zh_CN.qm</file>
     </qresource>
 </RCC>
